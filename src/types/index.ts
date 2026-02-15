@@ -8,6 +8,7 @@ export interface PersonalInfo {
     linkedin: string
     github: string
     bio: string
+    resume?: string
 }
 
 export interface ButtonConfig {
@@ -138,4 +139,5 @@ export interface PortfolioData {
     achievements?: AchievementsSection
     contact?: ContactSection
     footer?: FooterSection
+    resume?: string
 }
