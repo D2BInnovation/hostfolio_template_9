@@ -18,6 +18,7 @@ export function useData() {
     const hasAchievements = computed(() => !!data.value.achievements)
     const hasContact = computed(() => !!data.value.contact)
     const hasFooter = computed(() => !!data.value.footer)
+    const resume = computed(() => (data.value as any).resume || data.value.personal?.resume)
 
     // Navigation Items Generator
     const navItems = computed(() => {
@@ -47,6 +48,7 @@ export function useData() {
         hasTestimonials,
         hasAchievements,
         hasContact,
-        hasFooter
+        hasFooter,
+        resume
     }
 }

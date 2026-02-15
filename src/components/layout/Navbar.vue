@@ -3,7 +3,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import { useData } from '@/composables/useData'
 import gsap from 'gsap'
 
-const { personalInfo, navItems } = useData()
+const { personalInfo, navItems, resume } = useData()
 const isScrolled = ref(false)
 const mobileMenuOpen = ref(false)
 
@@ -60,6 +60,15 @@ onUnmounted(() => {
         >
           {{ item.name }}
         </a>
+        <a 
+          v-if="resume" 
+          :href="resume" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="btn-resume"
+        >
+          Resume
+        </a>
       </div>
 
       <!-- Mobile Toggle -->
@@ -79,6 +88,16 @@ onUnmounted(() => {
           @click="toggleMobileMenu"
         >
           {{ item.name }}
+        </a>
+        <a 
+          v-if="resume" 
+          :href="resume" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="mobile-resume-btn"
+          @click="toggleMobileMenu"
+        >
+          Download Resume
         </a>
       </div>
     </div>
@@ -223,5 +242,32 @@ onUnmounted(() => {
   font-size: 1.2rem;
   font-weight: 500;
   color: var(--text-main);
+}
+
+.btn-resume {
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-left: 1rem;
+}
+
+.btn-resume:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+.mobile-resume-btn {
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 600;
+  width: 100%;
+  text-align: center;
 }
 </style>
